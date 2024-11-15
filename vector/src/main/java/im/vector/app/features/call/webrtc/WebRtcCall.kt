@@ -160,7 +160,7 @@ class WebRtcCall(
 
     private val availableCamera = ArrayList<CameraProxy>()
     private var cameraInUse: CameraProxy? = null
-    private var currentCaptureFormat: CaptureFormat = CaptureFormat.HD
+    private var currentCaptureFormat: CaptureFormat = CaptureFormat.SD
     private var cameraAvailabilityCallback: CameraManager.AvailabilityCallback? = null
 
     private var videoSender: RtpSender? = null
