@@ -219,8 +219,8 @@ class WebRtcCallManager @Inject constructor(
         val options = PeerConnectionFactory.Options()
         val defaultVideoEncoderFactory = DefaultVideoEncoderFactory(
                 eglBaseContext,
-                /* enableIntelVp8Encoder */
-                true,
+                /* disableIntelVp8Encoder */
+                false,
                 /* enableH264HighProfile */
                 true
         )
