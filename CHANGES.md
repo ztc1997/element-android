@@ -1,3 +1,18 @@
+Changes in Element v1.6.28 (2025-01-13)
+=======================================
+
+- Start sunsetting the application: prevent creation of new accounts on server with MAS support, and redirect users to Element X. ([#8983](https://github.com/element-hq/element-android/pull/8983))
+- Sync strings. ([#8986](https://github.com/element-hq/element-android/pull/8986))
+
+
+Changes in Element v1.6.26 (2024-12-20)
+=======================================
+
+Other changes
+-------------
+ - Bump org.matrix.rustcomponents:crypto-android from 0.5.0 to 0.6.0 based on matrix-sdk-crypto-0.9.0 ([#8960](https://github.com/element-hq/element-android/issues/8960))
+
+
 Changes in Element v1.6.24 (2024-11-19)
 =======================================
 
