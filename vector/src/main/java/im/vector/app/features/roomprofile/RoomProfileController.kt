@@ -1,8 +1,8 @@
 /*
  * Copyright 2019-2024 New Vector Ltd.
  *
- * SPDX-License-Identifier: AGPL-3.0-only
- * Please see LICENSE in the repository root for full details.
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+ * Please see LICENSE files in the repository root for full details.
  */
 
 package im.vector.app.features.roomprofile
@@ -52,6 +52,7 @@ class RoomProfileController @Inject constructor(
         fun onUploadsClicked()
         fun createShortcut()
         fun onSettingsClicked()
+        fun onReportRoomClicked()
         fun onLeaveRoomClicked()
         fun onRoomAliasesClicked()
         fun onRoomPermissionsClicked()
@@ -279,6 +280,13 @@ class RoomProfileController @Inject constructor(
                     action = { callback?.createShortcut() }
             )
         }
+        buildProfileAction(
+                id = "Report",
+                title = stringProvider.getString(CommonStrings.room_profile_section_more_report),
+                icon = R.drawable.ic_report_spam,
+                editable = false,
+                action = { callback?.onReportRoomClicked() }
+        )
         buildProfileAction(
                 id = "leave",
                 title = stringProvider.getString(
