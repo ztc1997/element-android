@@ -167,8 +167,7 @@
 
         <activity
             android:name=".features.home.room.detail.RoomDetailActivity"
-            android:parentActivityName=".features.home.HomeActivity"
-            android:windowSoftInputMode="adjustResize">
+            android:parentActivityName=".features.home.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".features.home.HomeActivity" />
@@ -206,8 +205,17 @@
                 <data android:host="develop.element.io" />
                 <!-- Matching asset file: https://staging.element.io/.well-known/assetlinks.json -->
                 <data android:host="staging.element.io" />
-                <!-- Fix it https://github.com/element-hq/element-android/issues/8904 -->
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
                 <data android:host="mobile.element.io" />
+                <!-- accept only root path -->
+                <data android:path="/" />
             </intent-filter>
         </activity>
 
@@ -360,8 +368,8 @@
 
         <service
             android:name=".core.services.CallAndroidService"
-            android:foregroundServiceType="phoneCall"
-            android:exported="false">
+            android:exported="false"
+            android:foregroundServiceType="phoneCall">
             <!-- in order to get headset button events -->
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
@@ -378,7 +386,8 @@
         <service
             android:name=".features.call.telecom.VectorConnectionAndroidService"
             android:exported="false"
-            android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE">
+            android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"
+            tools:targetApi="M">
             <intent-filter>
                 <action android:name="android.telecom.ConnectionService" />
             </intent-filter>
@@ -404,8 +413,7 @@
             android:name=".features.call.audio.MicrophoneAccessService"
             android:exported="false"
             android:foregroundServiceType="microphone"
-            android:permission="android.permission.FOREGROUND_SERVICE_MICROPHONE">
-        </service>
+            android:permission="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 
         <!-- Receivers -->
 
